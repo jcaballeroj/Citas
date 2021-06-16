@@ -1,6 +1,6 @@
 import React,{Fragment, useState} from 'react';
-import uuid from 'uuid/dist/v4';
-
+import uuid from 'uuid/dist/v4';//agrega id 
+import PropTypes from 'prop-types';
 
 const Formulario = ({crearCita}) => {
 
@@ -16,12 +16,9 @@ const Formulario = ({crearCita}) => {
 
     //funcion que se ejecuta cada que el usuario escribe en un input
     const actualizarState = e =>{
-        actualizarCita({
-            ...cita,
-            [e.target.name]: e.target.value
-        })
+        actualizarCita({...cita, [e.target.name]: e.target.value })
     };
-    //extraemos los valores 
+    //extraemos los valores para hacer una validacion
     const {mascota,propietario,fecha,hora,sintomas} = cita;
 
     //cuando el usuario presiona agregar cita 
@@ -110,6 +107,10 @@ const Formulario = ({crearCita}) => {
            </form>
        </Fragment>
      );
+}
+
+Formulario.propTypes= {
+    crearCita: PropTypes.func.isRequired
 }
  
 export default Formulario;
