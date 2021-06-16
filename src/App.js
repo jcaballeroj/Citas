@@ -15,12 +15,12 @@ function App() {
 
   //useEffect para realizar ciertas operaciones cuando el state cambia
   useEffect( () => {
+    let citasIniciales = JSON.parse(localStorage.getItem('citas'));
     if (citasIniciales) {
         localStorage.setItem('citas', JSON.stringify(citas));
     } else {
       localStorage.setItem('citas', JSON.stringify([]));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[citas] )
 
   // Funcion que tome las citas actuales y agregue la nueva
